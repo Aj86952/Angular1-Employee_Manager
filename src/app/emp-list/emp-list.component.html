@@ -1,0 +1,77 @@
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="container mt-3" *ngIf="!loading">
+  <div *ngIf="employeeList | filter : searchText as newEmployeeList">
+    <div class="mb-3">
+      <b style="font-size: 20px">Employee List</b>
+      <input
+        type="text"
+        style="float: right"
+        placeholder="Search"
+        [(ngModel)]="searchText"
+      />
+    </div>
+    <table class="table table-success table-striped table-hover">
+      <thead>
+        <tr>
+          <th style="width: 10%">S. No.</th>
+          <th style="width: 20%">Name</th>
+          <th style="width: 20%">Email</th>
+          <th style="width: 20%">Number</th>
+          <th style="width: 10%">Gender</th>
+          <th style="width: 10%">Married</th>
+          <th style="width: 10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="newEmployeeList.length; else notFound">
+          <tr *ngFor="let employee of newEmployeeList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td
+              style="max-width: 10px"
+              class="text-truncate"
+              title="{{ employee.name }}"
+            >
+              {{ employee.name }}
+            </td>
+            <td
+              style="max-width: 10px"
+              class="text-truncate"
+              title="{{ employee.email }}"
+            >
+              {{ employee.email }}
+            </td>
+            <td>{{ employee.number }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.isMarried }}</td>
+            <td>
+              <span title="Edit" style="cursor: pointer"
+                ><i
+                  class="fa-regular fa-pen-to-square"
+                  (click)="editEmployee(employee.id)"
+                ></i
+              ></span>
+              <span title="Delete" style="margin-left: 10px; cursor: pointer"
+                ><i
+                  class="fa-regular fa-trash-can"
+                  (click)="deleteEmployee(employee.id, i)"
+                ></i
+              ></span>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #notFound style="float: right">
+  <div style="margin-top: 60px" class="d-flex justify-content-center">
+    <span class="offset-11"
+      ><i class="fas fa-search search-icon"></i> <b>No item found..!</b></span
+    >
+  </div>
+</ng-template>

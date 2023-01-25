@@ -1,0 +1,28 @@
+{
+  "empList": [
+    {
+      "name": "Ajinkya Rajendra Hatwar",
+      "email": "ajinkya@gmail.coom",
+      "number": 9529137944,
+      "gender": "Male",
+      "isMarried": "No",
+      "id": 6
+    },
+    {
+      "name": "Rohan",
+      "email": "rohan@dfaskl",
+      "number": 8746521366,
+      "gender": "Male",
+      "isMarried": "Yes",
+      "id": 7
+    },
+    {
+      "name": "we",
+      "email": "sdfasd",
+      "number": 8794684,
+      "gender": "Male",
+      "isMarried": "No",
+      "id": 9
+    }
+  ]
+}

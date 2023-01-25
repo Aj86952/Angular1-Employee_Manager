@@ -1,0 +1,4 @@
+.nav-text:hover {
+  border-bottom: 2px solid palevioletred !important;
+  margin-top: 2px;
+}

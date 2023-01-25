@@ -1,0 +1,64 @@
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="text-center" style="margin-left: 150px">
+  <div class="mt-5 col-md-8">
+    <label class="form-label col-md-2">Name :</label>
+    <input
+      class="col-md-6"
+      type="text"
+      [(ngModel)]="employee.name"
+      value="name"
+      autocomplete="off"
+      required
+    />
+  </div>
+  <div class="mt-2 col-md-8">
+    <label class="form-label col-md-2">Email :</label>
+    <input
+      class="col-md-6"
+      type="email"
+      [(ngModel)]="employee.email"
+      value="email"
+      autocomplete="off"
+    />
+  </div>
+  <div class="mt-2 col-md-8">
+    <label class="form-label col-md-2">Mobile :</label>
+    <input
+      class="col-md-6"
+      type="number"
+      [(ngModel)]="employee.number"
+      value="number"
+      autocomplete="off"
+    />
+  </div>
+  <div class="mt-2 col-md-8">
+    <span class="col-md-4">
+      <label class="form-label col-md-2">Gender :</label>
+      <select class="col-md-2" [(ngModel)]="employee.gender" value="gender">
+        <option [ngValue]="null" selected disabled>Choose</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </span>
+    <span class="col-md-4">
+      <label class="col-md-3">Married :</label>
+      <input
+        class="col-md-1"
+        type="checkbox"
+        [(ngModel)]="employee.isMarried"
+      />
+    </span>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success btn-sm"
+    style="margin-top: 10px; margin-right: 150px"
+    (click)="submitEmp()"
+  >
+    Submit
+  </button>
+</div>
